@@ -1,11 +1,15 @@
 #! /bin/bash
 
+# Setting some basic constants
+export SYMFONY__TESTDB=mysql
+export DB=mysql
+
 echo "Prepare the configuration"
 cp app/config/parameters.php.dist app/config/parameters.php
+cp /test-data/config_test.yml app/config
 
 echo "Prepare composer"
 composer self-update
-
 
 echo "Install all dependencies"
 composer install --prefer-source --no-interaction
@@ -17,4 +21,4 @@ echo "Create the schema"
 app/console doctrine:schema:create --env=test
     
 echo "Run the test file"
-SYMFONY__TESTDB=mysql DB=mysql vendor/bin/phpunit -c app/ --coverage-html build/logs/code-coverage
+vendor/bin/phpunit -c app/ --coverage-html build/logs/code-coverage
