@@ -1,6 +1,8 @@
 
 FROM php:7.1
 
+RUN apt-get update && apt-get install wget
+
 # Install Composer
 # See https://tecnstuff.net/how-to-install-composer-on-debian-10/
 RUN cd /tmp && php -r "copy('https://getcomposer.org/installer', 'composer-setup.php');" && \
