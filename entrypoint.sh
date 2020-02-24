@@ -4,6 +4,9 @@
 export SYMFONY__TESTDB=mysql
 export DB=mysql
 
+echo "Who am I?"
+whoami
+
 echo "Prepare the configuration"
 cp app/config/parameters.php.dist app/config/parameters.php
 cp /test-data/config_test.yml app/config
