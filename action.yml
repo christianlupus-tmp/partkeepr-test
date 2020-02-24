@@ -1,0 +1,7 @@
+
+name: Perform the test
+description: Performs the main test during the workflow
+runs:
+    using: docker
+    image: Dockerfile
+    
